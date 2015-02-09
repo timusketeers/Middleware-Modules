@@ -1,0 +1,13 @@
+package com.howbuy.homo.hotdeploy.io.monitor.observer;
+
+
+/**
+ * 文件变动监听器.
+ * @author li.zhang
+ * 2014-9-5
+ *
+ */
+public interface IFileAlterationObeserver
+{
+
+}

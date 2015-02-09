@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/annotation"/>
+	<classpathentry kind="src" path="src/log"/>
+	<classpathentry kind="src" path="src/mqueue"/>
+	<classpathentry kind="src" path="src/objectpool"/>
+	<classpathentry kind="src" path="src/security"/>
+	<classpathentry kind="src" path="src/storage"/>
+	<classpathentry kind="src" path="src/txmanager"/>
+	<classpathentry kind="src" path="test/mqueue"/>
+	<classpathentry kind="src" path="test/objectpool"/>
+	<classpathentry kind="src" path="test/security"/>
+	<classpathentry kind="src" path="test/storage"/>
+	<classpathentry kind="src" path="test/txmanager"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

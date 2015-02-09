@@ -1,0 +1,30 @@
+<project name="modules" basedir="." default="packageModules">
+	   <property name="proj.classes" value="classes"/>
+       <property name="build.dir" value="build"/>
+	
+	   <target name="clean" description="clean...">
+	       <delete dir="${build.dir}"/>
+	   </target>
+	  
+	   <target name="init" description="init...">
+	  	  <mkdir dir="${build.dir}"/>
+	  	  <mkdir dir="${build.dir}/classes"/>
+	      <mkdir dir="${build.dir}/lib"/>
+	  	
+	  	  <copy todir="${build.dir}/classes">
+		  	  <fileset dir="${proj.classes}">
+		  	  	  <include name="**/*"/>
+		  	  </fileset>
+		  </copy> 
+	   </target>
+	
+	   <target name="jar_storage" depends="init" description="Jar HbbSO...">
+      	   <jar jarfile="${build.dir}/lib/storage.jar" basedir="${build.dir}/classes">  
+      	 	 <include name="com/howbuy/homo/storage/**/*.class"/>
+      	   </jar>
+	    </target>
+		
+	   <target name="packageModules" depends="clean,init, jar_storage" description="package all modules">
+	
+	   </target>
+</project>

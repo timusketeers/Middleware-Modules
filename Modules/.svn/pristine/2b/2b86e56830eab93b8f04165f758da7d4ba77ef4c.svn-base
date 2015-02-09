@@ -1,0 +1,130 @@
+/***********************************************************************
+ * Module:  MMU.java
+ * Author:  li.zhang
+ * Purpose: Defines the Class MMU
+ ***********************************************************************/
+package com.howbuy.homo.storage;
+
+/**
+ * 内存管理单元，内存管理单元的主要职责是: 
+ * 
+ * 1.负责内存使用情况信息. 
+ * 
+ * 2.负责内存调度.
+ * 
+ * @author li.zhang
+ */
+public class MMU
+{
+    /** 元数据信息封装 **/
+    private MetaInfo metaInfo;
+    
+    /** 页的队列,队列满的时候会根据LRU换出一整个页到磁盘. **/
+    private Page[] pages;
+
+    /**
+     * 构造方法
+     * @param capacity 初始化页的个数.
+     */
+    public MMU(int capacity)
+    {
+        pages = new Page[capacity];
+    }
+
+    /**
+     * 换出到磁盘
+     * @param pageNo 页编号
+     */
+    public void swapOut(String pageNo)
+    {
+        // TODO: implement
+    }
+
+    /**
+     * 从磁盘换入到内存
+     * @param pageNo 页编号
+     */
+    public void swapIn(String pageNo)
+    {
+        // TODO: implement
+    }
+
+    /**
+     * 查询内存使用情况.
+     * @return 返回内存使用情况信息.
+     */
+    public int memoryUsage()
+    {
+        // TODO: implement
+        return 0;
+    }
+
+    /**
+     * 新增存储对象.
+     * @param data 存储对象对应的字节流.
+     */
+    public void insert(byte[] data)
+    {
+        // TODO: implement
+    }
+
+    /**
+     * 更新对象存储.
+     * @param storageIndex 存储索引
+     * @param data 存储对象对应的字节流
+     */
+    public void update(String storageIndex, byte[] data)
+    {
+        // TODO: implement
+    }
+
+    /**
+     * 根据存储索引storageIndex删除存储的对象.
+     * @param storageIndex 存储索引
+     */
+    public void delete(String storageIndex)
+    {
+        // TODO: implement
+    }
+
+    /**
+     * 根据存储索引storageIndex查询出存储的对象.
+     * @param storageIndex 存储索引
+     * @return 返回存储的对象.
+     */
+    public Object query(String storageIndex)
+    {
+        // TODO: implement
+        return null;
+    }
+
+    /**
+     * 获取当前页，因为首先应该判断当前页是否有足够的空间存储新对象.
+     * @return 获取当前页，因为我们存储一个新对象的时候会首先判断当前页空间是否足够，
+     * 如果足够直接存储在当前页.否则，存储在下一个页.
+     */
+    public Page getCurrentPage()
+    {
+        // TODO: implement
+        return null;
+    }
+
+    /**
+     * 返回下个页
+     * @return 返回当前页的下个页
+     */
+    public Page nextPage()
+    {
+        return null;
+    }
+
+    public MetaInfo getMetaInfo()
+    {
+        return metaInfo;
+    }
+
+    public Page[] getPages()
+    {
+        return pages;
+    }
+}

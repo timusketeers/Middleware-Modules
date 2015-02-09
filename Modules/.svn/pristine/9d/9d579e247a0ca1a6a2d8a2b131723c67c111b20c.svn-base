@@ -1,0 +1,10 @@
+<project name="modules" basedir="." default="packageModules">
+	
+	<target name="init" description="init">
+	
+	</target>
+	
+	<target name="packageModules" description="package all modules">
+	
+	</target>
+</project>

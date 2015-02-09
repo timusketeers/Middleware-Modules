@@ -1,0 +1,109 @@
+/***********************************************************************
+ * Module:  ObjectDecoder.java
+ * Author:  li.zhang
+ * Purpose: Defines the Class ObjectDecoder
+ ***********************************************************************/
+package com.howbuy.homo.storage.decode;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.howbuy.homo.storage.encode.ObjectEncoder;
+import com.howbuy.homo.storage.encode.TestObject;
+
+
+/**
+ * 目前存在的问题是对象中的成员不能为null,否则会有异常.
+ * 
+ * 数组[]元素的处理也有些问题.
+ * 
+ * 解码器
+ * @author li.zhang
+ */
+public class ObjectDecoderTest
+{
+    public static void main(String[] args) throws Exception
+    {
+        ObjectDecoder decoder = new ObjectDecoder();
+        //1.String类型测试
+//        byte[] data = {
+//                       0, 0, 0, 16, 106, 
+//                       97, 118, 97, 46, 108, 
+//                       97, 110, 103, 46, 83, 
+//                       116, 114, 105, 110, 103, 
+//                       0, 0, 0, 11, 104, 
+//                       101, 108, 108, 111, 32, 
+//                       119, 111, 114, 108, 100 
+//                       };
+//        Object obj = decoder.decode(data);
+//        System.out.println(obj);
+//        
+//        //2.Object类型测试.
+//        byte[] data2 = {
+//                        0, 0, 0, 41, 99, 
+//                        111, 109, 46, 104, 111, 
+//                        119, 98, 117, 121, 46, 
+//                        104, 111, 109, 111, 46, 
+//                        115, 116, 111, 114, 97, 
+//                        103, 101, 46, 101, 110, 
+//                        99, 111, 100, 101, 46, 
+//                        84, 101, 115, 116, 79, 
+//                        98, 106, 101, 99, 116,
+//                        0, 0, 0, 17, 106, 
+//                        97, 118, 97, 46, 108, 
+//                        97, 110, 103, 46, 73, 
+//                        110, 116, 101, 103, 101, 
+//                        114, 0, 0, 0, 22, 
+//                        0, 0, 0, 16, 106, 
+//                        97, 118, 97, 46, 108, 
+//                        97, 110, 103, 46, 83, 
+//                        116, 114, 105, 110, 103, 
+//                        0, 0, 0, 7, 116, 
+//                        101, 115, 116, 79, 98, 
+//                        106, 0, 0, 0, 19, 
+//                        106, 97, 118, 97, 46, 
+//                        117, 116, 105, 108, 46, 
+//                        65, 114, 114, 97, 121, 
+//                        76, 105, 115, 116, 0,
+//                        0, 0, 4, 0, 0, 
+//                        0, 16, 106, 97, 118, 
+//                        97, 46, 108, 97, 110, 
+//                        103, 46, 83, 116, 114, 
+//                        105, 110, 103, 0, 0, 
+//                        0, 3, 115, 111, 110, 
+//                        0, 0, 0, 16, 106, 
+//                        97, 118, 97, 46, 108, 
+//                        97, 110, 103, 46, 83, 
+//                        116, 114, 105, 110, 103, 
+//                        0, 0, 0, 8, 100, 
+//                        97, 117, 103, 104, 116, 
+//                        101, 114, 0, 0, 0, 
+//                        16, 106, 97, 118, 97, 
+//                        46, 108, 97, 110, 103, 
+//                        46, 83, 116, 114, 105, 
+//                        110, 103, 0, 0, 0, 
+//                        4, 119, 105, 102, 101, 
+//                        0, 0, 0, 16, 106, 
+//                        97, 118, 97, 46, 108, 
+//                        97, 110, 103, 46, 83, 
+//                        116, 114, 105, 110, 103, 
+//                        0, 0, 0, 6, 112, 
+//                        97, 114, 101, 110, 116};
+//        TestObject obj2 = (TestObject)decoder.decode(data2);
+//        System.out.println(obj2);
+        
+        //3.
+        ObjectEncoder encoder = new ObjectEncoder();
+        TestObject obj3 = new TestObject();
+        obj3.setAge(22);
+        obj3.setName("testObj");
+        List<String> members = new ArrayList<String>();
+        members.add("son");
+        members.add("daughter");
+        members.add("wife");
+        members.add("parent");
+        obj3.setMembers(members);
+        TestObject rs = (TestObject)decoder.decode(encoder.encode(obj3));
+        System.out.println(rs);
+    }
+}

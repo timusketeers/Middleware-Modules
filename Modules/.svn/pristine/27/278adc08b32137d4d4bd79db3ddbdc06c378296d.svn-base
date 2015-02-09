@@ -1,0 +1,28 @@
+这个下面放的是自己定制的日志实现的jar包. 
+
+开发初衷:
+
+HbbSO项目会通过加载plugins文件夹下面的aar应用包来以插件的形式来管理各个aar应用包.
+
+我们期望HbbSO以自己的方式打印自己的日志，各个aar应用包以各个应用包自己的方式打印自己
+
+的日志。HbbSO和各个aar应用包之间以及aar包之前的日志打印是彼此隔离、互不影响的.
+
+而直接使用log4j不能满足这个需求，所以需要定制自己的日志包.
+
+    下面解释为什么log4j不能满足这种需求:
+    
+    log4j是通过调用PropertyConfigurator.configure(log4j.properties)文件来配置log4j使得
+    
+ log4j配置生效的.虽然我们可以通过:
+    
+    PropertyConfigurator.configure(hbbso_log4j.properties);
+    PropertyConfigurator.configure(aar_log4j.properties);
+   
+ 上面这种方式来动态修改log4j的配置。但是，这样不能解决HbbSO应用异步调用aar应用的情况，即HbbSO
+ 
+ 和aar应用包同时打印日志的情况. 同时，HbbSO同时调用多个aar应用包也会有问题.上面的方法并没有从
+ 
+ 根本上解决问题，所以我们还是需要定制一套自己的日志体系.这就是这个包下面的代码的开发动机,也是该
+ 
+ 包下的代码要解决的问题.
